@@ -1,8 +1,23 @@
+# Filename: slam_online_async.yaml
+# Location: ~/ros2_ws/src/rover_navigation/config/
+
+# Parameters for the SLAM Toolbox in asynchronous mapping mode
 slam_toolbox:
   ros__parameters:
+    # It is recommended to set this to false for live robots
     use_sim_time: false
+
+    # Frames - these are the default and should match your launch file
     odom_frame: odom
     map_frame: map
     base_frame: base_link
+
+    # Topics - these are the default and should match your launch file
     scan_topic: /scan
-    mode: mapping
+    
+    # SLAM Mode
+    mode: mapping  # Can be 'mapping' or 'localization'
+    
+    # Other useful parameters you might want to tune later
+    map_update_interval: 1.0 # How often to update the map (in seconds)
+    resolution: 0.05 # The resolution of the map in meters per pixel
